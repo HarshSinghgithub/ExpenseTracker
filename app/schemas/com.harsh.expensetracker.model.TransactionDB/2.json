@@ -1,0 +1,65 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "f90a6005dd3757858a427f447b525bf6",
+    "entities": [
+      {
+        "tableName": "Transactions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Transaction_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Title` TEXT NOT NULL, `Amount` INTEGER NOT NULL, `Type` TEXT NOT NULL, `Date` TEXT NOT NULL, `Tag` TEXT NOT NULL DEFAULT 'Income')",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "Transaction_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "Title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "Amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "Type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "Date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tag",
+            "columnName": "Tag",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'Income'"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Transaction_ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f90a6005dd3757858a427f447b525bf6')"
+    ]
+  }
+}
